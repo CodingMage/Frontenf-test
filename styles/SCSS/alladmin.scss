@@ -1,0 +1,214 @@
+.alladmin__paper {
+  padding: 11px 33px 21px 29px;
+
+  max-width: 1217px;
+  width: 77vw;
+  padding: 15px 0px;
+  background-color: #fff;
+  margin: 0 auto;
+
+  .alladmin__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 22px;
+    padding-left: 15px;
+    padding-right: 15px;
+    &-left {
+      font-family: Roboto;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 21px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: rgba(102, 102, 102, 1);
+    }
+
+    &-right {
+      button {
+        height: 48px;
+        width: 89px;
+        appearance: none;
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        background-color: white;
+        border: 2px solid rgba(241, 42, 16, 1);
+      }
+    }
+  }
+
+  .alladmin__2 {
+    padding: 20px 33px 17px 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    .two__left {
+      height: 29px;
+      width: 157px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+
+      span {
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgba(102, 102, 102, 1);
+      }
+      select {
+        height: 29px;
+        width: 52px;
+        border: 1px solid rgba(119, 119, 119, 1);
+      }
+    }
+
+    .two__right {
+      height: 40px;
+      width: 219px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      span {
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgba(102, 102, 102, 1);
+      }
+
+      input {
+        width: 149px;
+        height: 40px;
+
+        background: #ffffff;
+        opacity: 0.3;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 97px rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+
+  .alladmin__3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // height: 19px;
+    width: 100%;
+    padding: 23px 40px 20px 35px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    &-head {
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 19px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: rgba(102, 102, 102, 1);
+      transform: translateX(20px);
+    }
+  }
+
+  .alladmin__4 {
+    padding: 14px 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    &__avatar {
+      height: 56px;
+      width: 56px;
+      background: rgba(196, 196, 196, 1);
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    &__names {
+      height: 19px;
+      //   width: 637px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      transform: translateX(-10%);
+
+      span {
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgba(102, 102, 102, 1);
+      }
+    }
+
+    &__status {
+      height: 28px;
+      width: 56px;
+      background: rgba(39, 141, 68, 1);
+      color: white;
+      border: 1px solid rgba(39, 141, 68, 1);
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 14px;
+      letter-spacing: 0em;
+      text-align: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__more {
+      height: 36px;
+      width: 98px;
+      font-family: Roboto;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 16px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: rgba(102, 102, 102, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      select {
+        border: 2px solid rgba(241, 42, 16, 1);
+
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-const { default: Layout } = require("../component/shared/Layout");
+const { default: Layout } = require("../../component/shared/Layout");
 
 function dashboard() {
   return (

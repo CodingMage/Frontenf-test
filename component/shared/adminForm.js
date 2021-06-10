@@ -1,5 +1,5 @@
-import InfoIcon from "@material-ui/icons/Info";
 import DoneIcon from "@material-ui/icons/Done";
+import { InfoOutlined } from "@material-ui/icons";
 
 function AdminForm() {
   return (
@@ -43,7 +43,7 @@ function AdminForm() {
             <div className="form__2-input__label">Sex:</div>
             <div className="form__2-input__input">
               <select>
-                <option selected value="Nigeria">
+                <option selected value="Male">
                   Male
                 </option>
                 <option value="Female">Female</option>
@@ -188,8 +188,8 @@ function AdminForm() {
             </div>
           </div>
           <div className="info__warning">
-            <InfoIcon /> The password will automatically be generated and sent
-            to the user’s email address.
+            <InfoOutlined /> The password will automatically be generated and
+            sent to the user’s email address.
           </div>
 
           <div className="create-btn">

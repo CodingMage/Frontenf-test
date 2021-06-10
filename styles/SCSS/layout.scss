@@ -5,7 +5,7 @@
     display: flex;
 
     .layout__right {
-      flex: 0.75;
+      flex: 0.8;
       background: #e5e5e5;
 
       .layout__top {
@@ -67,7 +67,7 @@
     }
 
     .layout__side {
-      flex: 0.25;
+      flex: 0.2;
       min-height: 100vh;
 
       .side__misc {

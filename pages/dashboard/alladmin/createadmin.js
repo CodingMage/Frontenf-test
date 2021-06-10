@@ -1,5 +1,5 @@
-import AdminForm from "../component/shared/adminForm.js";
-import Layout from "../component/shared/Layout.js";
+import AdminForm from "../../../component/shared/adminForm.js";
+import Layout from "../../../component/shared/Layout.js";
 function Createadmin() {
   return (
     <div>
