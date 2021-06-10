@@ -5,6 +5,7 @@ function AdminForm() {
   return (
     <div className="adminform">
       <div className="adminform__paper">
+        <div className="paper__header">CREATE ADMIN</div>
         <div className="form">
           <div className="form__1">
             <div className="form__1-input">
@@ -83,9 +84,16 @@ function AdminForm() {
             </div>
           </div>
 
-          <div className="form__1-input">
+          <div className="form__1-input ">
             <div className="form__1-input__label">About</div>
-            <div className="form__1-input__input">
+            <div
+              className="form__1-input__input  "
+              style={{
+                height: "unset",
+                maxWidth: "unset",
+                marginBottom: "27px",
+              }}
+            >
               <textarea name="about"></textarea>
             </div>
           </div>
@@ -94,7 +102,7 @@ function AdminForm() {
             <div className="form__3-input__label">About</div>
             <div className="form__3-input__input">
               <button>Choose File</button>
-              <input type="text" />
+              <input type="text" placeholder="No file chosen" />
             </div>
           </div>
 
