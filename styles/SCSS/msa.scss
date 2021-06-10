@@ -1,0 +1,145 @@
+.msa {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  &__paper {
+    max-width: 1217px;
+    width: 52vw;
+    // padding: 15px 0px;
+    background-color: #fff;
+    // margin: 0 auto;
+
+    .msa__top {
+      padding: 16px 33px 17px 29px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 1);
+      &-right {
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgba(102, 102, 102, 1);
+      }
+      &-left {
+        height: 49px;
+        width: 141px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        color: rgba(68, 68, 68, 1);
+        border: 2px solid rgba(241, 42, 16, 1);
+      }
+    }
+
+    .list__container {
+      display: flex;
+      flex-direction: column;
+
+      .msa__list {
+        height: 66px;
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 33px 17px 29px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        align-items: center;
+
+        &-title {
+          font-family: Roboto;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 60px;
+          letter-spacing: 0em;
+          text-align: left;
+          color: rgba(102, 102, 102, 1);
+        }
+
+        &-value {
+          font-family: Roboto;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 60px;
+          letter-spacing: 0em;
+          text-align: right;
+          color: rgba(102, 102, 102, 1);
+        }
+        .status-b {
+          height: 28px;
+          width: 58px;
+          border: 1px solid rgba(39, 141, 68, 1);
+          font-family: Roboto;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 16px;
+          letter-spacing: 0em;
+          text-align: left;
+          color: white;
+          background: rgba(39, 141, 68, 1);
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .role-b {
+          height: 28px;
+          width: 110px;
+
+          font-family: Roboto;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 16px;
+          letter-spacing: 0em;
+          text-align: left;
+          color: white;
+          background: rgba(253, 114, 1, 1);
+
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .link {
+          font-family: Roboto;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 60px;
+          letter-spacing: 0em;
+          text-align: right;
+          color: rgba(241, 42, 16, 1);
+        }
+      }
+    }
+  }
+
+  .manager {
+    width: 23vw;
+    height: 389px;
+  }
+
+  .mas__other {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 79%;
+    .big-avatar {
+      height: 206px;
+      width: 206px;
+      border-radius: 50%;
+      background: rgba(196, 196, 196, 1);
+    }
+  }
+}
