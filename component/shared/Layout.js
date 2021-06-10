@@ -36,9 +36,7 @@ function Layout({ route, msg, main }) {
             </div>
           </div>
 
-          <div className="main">
-            <div className="main__content">{main}</div>
-          </div>
+          <div className="main">{main}</div>
         </div>
       </div>
     </div>

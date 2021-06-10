@@ -6,7 +6,7 @@ function dashboard() {
       <Layout
         route="Dashboard"
         msg="Welcome Bosun Jones"
-        main="Dashboard, It Works!"
+        main={<div className="main__content">Dashboard, It Works!</div>}
       />
     </div>
   );
