@@ -2,6 +2,27 @@ import DoneIcon from "@material-ui/icons/Done";
 import { InfoOutlined } from "@material-ui/icons";
 
 function AdminForm() {
+  const [adminForm, setAdminForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    sex: "",
+    state_id: "",
+    city_id: "2",
+    country_id: " ",
+    password: "",
+    about: "",
+    profile_image: "",
+    facebook: "",
+    twitter: "",
+    instagram: "",
+    tiktok: "",
+    youtube: "",
+    linkedin: "",
+    permissions: "",
+    status: "",
+    permissions: "",
+  });
   return (
     <div className="adminform">
       <div className="adminform__paper">
