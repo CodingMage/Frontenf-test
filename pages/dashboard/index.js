@@ -1,16 +1,8 @@
 const { default: Layout } = require("../../component/shared/Layout");
 
-import axios from "axios";
-
-import { useState, useContext, useEffect } from "react";
-// import { Context } from "../../context/index";
 import { parseCookies } from "../../Helper";
-import { useRouter } from "next/router";
-import axiosConfig from "../../helpers/axiosConfig";
 
 function dashboard(data) {
-  const router = useRouter();
-
   let user = JSON.parse(data.data.user).user;
   return (
     <div>

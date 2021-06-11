@@ -2,14 +2,14 @@ import DoneIcon from "@material-ui/icons/Done";
 import { InfoOutlined } from "@material-ui/icons";
 import { useState } from "react";
 
-function AdminForm() {
+function AdminForm(token) {
   const [adminForm, setAdminForm] = useState({
     name: "",
     email: "",
     phone: "",
-    sex: "",
+    sex: "Male",
     state_id: "",
-    city_id: "2",
+    city_id: "",
     country_id: " ",
     password: "",
     about: "",
@@ -20,10 +20,14 @@ function AdminForm() {
     tiktok: "",
     youtube: "",
     linkedin: "",
-    permissions: "",
-    status: "",
-    permissions: "",
+    status: "active",
+    permissions: "delete-users",
   });
+
+  const createAdmin = () => {
+    console.log(adminForm);
+    console.log(token);
+  };
   return (
     <div className="adminform">
       <div className="adminform__paper">
@@ -33,7 +37,13 @@ function AdminForm() {
             <div className="form__1-input">
               <div className="form__1-input__label">Full Name:</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="text"
+                  value={adminForm.name}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, name: e.target.value })
+                  }
+                />
               </div>
             </div>
 
@@ -49,14 +59,26 @@ function AdminForm() {
             <div className="form__1-input">
               <div className="form__1-input__label">Email address:</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="email"
+                  value={adminForm.email}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, email: e.target.value })
+                  }
+                />
               </div>
             </div>
 
             <div className="form__1-input">
               <div className="form__1-input__label">Phone Number:</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="text"
+                  value={adminForm.phone}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, phone: e.target.value })
+                  }
+                />
               </div>
             </div>
           </div>
@@ -64,7 +86,12 @@ function AdminForm() {
           <div className="form__2-input">
             <div className="form__2-input__label">Sex:</div>
             <div className="form__2-input__input">
-              <select>
+              <select
+                value={adminForm.sex}
+                onChange={(e) =>
+                  setAdminForm({ ...adminForm, sex: e.target.value })
+                }
+              >
                 <option selected value="Male">
                   Male
                 </option>
@@ -76,7 +103,12 @@ function AdminForm() {
           <div className="form__2-input">
             <div className="form__2-input__label">Country:</div>
             <div className="form__2-input__input">
-              <select>
+              <select
+                value={adminForm.country_id}
+                onChange={(e) =>
+                  setAdminForm({ ...adminForm, country_id: e.target.value })
+                }
+              >
                 <option selected value="Nigeria">
                   Nigeria
                 </option>
@@ -89,7 +121,12 @@ function AdminForm() {
             <div className="form__1-input">
               <div className="form__1-input__label">State:</div>
               <div className="form__1-input__input">
-                <select>
+                <select
+                  value={adminForm.state_id}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, state_id: e.target.value })
+                  }
+                >
                   <option selected value="Lagos">
                     Lagos
                   </option>
@@ -101,7 +138,13 @@ function AdminForm() {
             <div className="form__1-input">
               <div className="form__1-input__label">City:</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="text"
+                  value={adminForm.city_id}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, city_id: e.target.value })
+                  }
+                />
               </div>
             </div>
           </div>
@@ -116,7 +159,13 @@ function AdminForm() {
                 marginBottom: "27px",
               }}
             >
-              <textarea name="about"></textarea>
+              <textarea
+                name="about"
+                value={adminForm.about}
+                onChange={(e) =>
+                  setAdminForm({ ...adminForm, about: e.target.value })
+                }
+              ></textarea>
             </div>
           </div>
 
@@ -132,14 +181,26 @@ function AdminForm() {
             <div className="form__1-input">
               <div className="form__1-input__label">Facebook Profile:</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="text"
+                  value={adminForm.facebook}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, facebook: e.target.value })
+                  }
+                />
               </div>
             </div>
 
             <div className="form__1-input">
               <div className="form__1-input__label">Twitter Handle:</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="text"
+                  value={adminForm.twitter}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, twitter: e.target.value })
+                  }
+                />
               </div>
             </div>
           </div>
@@ -148,14 +209,26 @@ function AdminForm() {
             <div className="form__1-input">
               <div className="form__1-input__label">Instagram Handle:</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="text"
+                  value={adminForm.instagram}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, instagram: e.target.value })
+                  }
+                />
               </div>
             </div>
 
             <div className="form__1-input">
               <div className="form__1-input__label">TicTok Handle:</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="text"
+                  value={adminForm.tiktok}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, tiktok: e.target.value })
+                  }
+                />
               </div>
             </div>
           </div>
@@ -164,14 +237,26 @@ function AdminForm() {
             <div className="form__1-input">
               <div className="form__1-input__label">YouTube Page:</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="text"
+                  value={adminForm.youtube}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, youtube: e.target.value })
+                  }
+                />
               </div>
             </div>
 
             <div className="form__1-input">
               <div className="form__1-input__label">LinkedIn Profile::</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="text"
+                  value={adminForm.linkedin}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, linkedin: e.target.value })
+                  }
+                />
               </div>
             </div>
           </div>
@@ -201,11 +286,16 @@ function AdminForm() {
           <div className="form__2-input">
             <div className="form__2-input__label">Status:</div>
             <div className="form__2-input__input">
-              <select>
-                <option selected value="Administrator">
+              <select
+                value={adminForm.status}
+                onChange={(e) =>
+                  setAdminForm({ ...adminForm, status: e.target.value })
+                }
+              >
+                <option selected value="active">
                   Active
                 </option>
-                <option value="Stories Author">Inactive</option>
+                <option value="inactive">Inactive</option>
               </select>
             </div>
           </div>
@@ -215,7 +305,7 @@ function AdminForm() {
           </div>
 
           <div className="create-btn">
-            <button>
+            <button onClick={createAdmin}>
               <DoneIcon /> Create Account
             </button>
           </div>
