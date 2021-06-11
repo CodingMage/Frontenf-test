@@ -1,6 +1,7 @@
 import LayersIcon from "@material-ui/icons/Layers";
 import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
-function Layout({ route, msg, main }) {
+import Link from "next/link";
+function Layout({ route, msg, main, name, role }) {
   return (
     <div className="layout">
       <div className="layout__contain">
@@ -9,20 +10,28 @@ function Layout({ route, msg, main }) {
           <div className="side__contain">
             <div className="side__contain-top">
               <div className="avatar"></div>
-              <div className="user-name">Bosun Jones</div>
-              <div className="user-role">Admin</div>
+              <div className="user-name">{name}</div>
+              <div className="user-role">{role}</div>
             </div>
 
             <div className="side__contain-others">
               <div className="others__header">Navigation</div>
               <div className="others__lists">
                 <div className="others__lists-list">
-                  <LayersIcon />
-                  <div className="list-name">Dashboard</div>
+                  <Link href="/dashboard">
+                    <a>
+                      <LayersIcon />
+                      <div className="list-name">Dashboard</div>
+                    </a>
+                  </Link>
                 </div>
                 <div className="others__lists-list">
-                  <PeopleOutlineIcon />
-                  <div className="list-name">Users</div>
+                  <Link href="/dashboard/alladmin">
+                    <a>
+                      <PeopleOutlineIcon />
+                      <div className="list-name">Users</div>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

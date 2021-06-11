@@ -1,17 +1,21 @@
 import React from "react";
 import Layout from "./Layout";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import Link from "next/link";
 
-function AllAdmin() {
+function AllAdmin({ adminData }) {
+  console.log(adminData);
   return (
     <div className="alladmin__paper">
       <div className="alladmin__top">
         <div className="alladmin__top-left">ALL ADMIN</div>
 
         <div className="alladmin__top-right">
-          <button>
-            <AddCircleOutlineIcon /> NEW
-          </button>
+          <Link href="/dashboard/alladmin/createadmin">
+            <button>
+              <AddCircleOutlineIcon /> NEW
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -46,81 +50,33 @@ function AllAdmin() {
         <div className="alladmin__3-head">Action</div>
       </div>
 
-      <div className="alladmin__4">
-        <div className="alladmin__4__avatar"></div>
-        <div className="alladmin__4__names">
-          <span> Kosara Okafor</span>
-          <span>Stories Author</span>
-          <span>bosunjones@gmail.com</span>
-          <span>08098765432</span>
-        </div>
-        <div className="alladmin__4__status">Active</div>
+      {adminData.map((data) => (
+        <>
+          <div className="alladmin__4" key={data.id}>
+            <div className="alladmin__4__avatar"></div>
+            <div className="alladmin__4__names">
+              <span> {data.name}</span>
+              <span>{data.role}</span>
+              <span>{data.email ? data.email : "N/A"}</span>
+              <span>{data.phone_no ? data.phone_no : "N/A"}</span>
+              <span></span>
+            </div>
+            {data.status === "active" ? (
+              <div className="alladmin__4__status">{data.status}</div>
+            ) : (
+              <div className="alladmin__4__status inactive">{data.status}</div>
+            )}
 
-        <div className="alladmin__4__more">
-          <select>
-            <option selected>More</option>
-            <option value="Manage">Manage</option>
-            <option value="Make Inactive">Make Inactive</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="alladmin__4">
-        <div className="alladmin__4__avatar"></div>
-        <div className="alladmin__4__names">
-          <span> Kosara Okafor</span>
-          <span>Stories Author</span>
-          <span>bosunjones@gmail.com</span>
-          <span>08098765432</span>
-        </div>
-        <div className="alladmin__4__status">Active</div>
-
-        <div className="alladmin__4__more">
-          <select>
-            <option selected>More</option>
-            <option value="Manage">Manage</option>
-            <option value="Make Inactive">Make Inactive</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="alladmin__4">
-        <div className="alladmin__4__avatar"></div>
-        <div className="alladmin__4__names">
-          <span> Kosara Okafor</span>
-          <span>Stories Author</span>
-          <span>bosunjones@gmail.com</span>
-          <span>08098765432</span>
-        </div>
-        <div className="alladmin__4__status">Active</div>
-
-        <div className="alladmin__4__more">
-          <select>
-            <option selected>More</option>
-            <option value="Manage">Manage</option>
-            <option value="Make Inactive">Make Inactive</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="alladmin__4">
-        <div className="alladmin__4__avatar"></div>
-        <div className="alladmin__4__names">
-          <span> Kosara Okafor</span>
-          <span>Stories Author</span>
-          <span>bosunjones@gmail.com</span>
-          <span>08098765432</span>
-        </div>
-        <div className="alladmin__4__status">Active</div>
-
-        <div className="alladmin__4__more">
-          <select>
-            <option selected>More</option>
-            <option value="Manage">Manage</option>
-            <option value="Make Inactive">Make Inactive</option>
-          </select>
-        </div>
-      </div>
+            <div className="alladmin__4__more">
+              <select>
+                <option selected>More</option>
+                <option value="Manage">Manage</option>
+                <option value="Make Inactive">Make Inactive</option>
+              </select>
+            </div>
+          </div>
+        </>
+      ))}
     </div>
   );
 }
