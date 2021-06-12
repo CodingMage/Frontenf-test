@@ -40,13 +40,6 @@ function SignIn(props) {
             sameSite: true,
           });
 
-          // dispatch({
-          //   type: "LOGGED_IN_USER",
-          //   payload: {
-          //     user: res,
-          //     isLoggedIn: true,
-          //   },
-          // });
           router.push(`/dashboard`);
         })
 
@@ -57,15 +50,6 @@ function SignIn(props) {
           }
         });
     }
-
-    e.preventDefault();
-
-    const userData = {
-      email: details.email,
-      password: details.password,
-    };
-
-    props.onAddDetails(userData);
   };
 
   return (

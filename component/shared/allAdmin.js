@@ -2,8 +2,15 @@ import React from "react";
 import Layout from "./Layout";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function AllAdmin({ adminData }) {
+  const router = useRouter();
+
+  const manageAdmin = (e, id) => {
+    e.preventDefault;
+    router.push(`/dashboard/alladmin/manage/${id}`);
+  };
   console.log(adminData);
   return (
     <div className="alladmin__paper">
@@ -12,9 +19,11 @@ function AllAdmin({ adminData }) {
 
         <div className="alladmin__top-right">
           <Link href="/dashboard/alladmin/createadmin">
-            <button>
-              <AddCircleOutlineIcon /> NEW
-            </button>
+            <a>
+              <button>
+                <AddCircleOutlineIcon /> NEW
+              </button>
+            </a>
           </Link>
         </div>
       </div>
@@ -70,7 +79,16 @@ function AllAdmin({ adminData }) {
             <div className="alladmin__4__more">
               <select>
                 <option selected>More</option>
-                <option value="Manage">Manage</option>
+                <option
+                  value="Manage"
+                  onClick={() =>
+                    router.push({
+                      pathname: `/dashboard/alladmin/manage/${data.id}`,
+                    })
+                  }
+                >
+                  Manage
+                </option>
                 <option value="Make Inactive">Make Inactive</option>
               </select>
             </div>

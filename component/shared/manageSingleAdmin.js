@@ -1,5 +1,8 @@
 import EditIcon from "@material-ui/icons/Edit";
-function ManageSingleAdmin() {
+function ManageSingleAdmin(singleAdminData) {
+  let data = singleAdminData.singleAdminData.data.admin;
+  console.log(data);
+
   return (
     <div className="msa">
       <div className="msa__paper">
@@ -14,49 +17,51 @@ function ManageSingleAdmin() {
           <div className="msa__list">
             <div className="msa__list-title">Full Name:</div>
 
-            <div className="msa__list-value">Bosun</div>
+            <div className="msa__list-value">{data.name}</div>
           </div>
 
           <div className="msa__list">
-            <div className="msa__list-title">Full Name:</div>
+            <div className="msa__list-title">Email Address:</div>
 
-            <div className="msa__list-value">Bosun</div>
+            <div className="msa__list-value">{data.email}</div>
           </div>
 
           <div className="msa__list">
-            <div className="msa__list-title">Full Name:</div>
+            <div className="msa__list-title">Phone Number:</div>
 
-            <div className="msa__list-value">Bosun</div>
+            <div className="msa__list-value">{data.phone_no}</div>
           </div>
 
           <div className="msa__list">
-            <div className="msa__list-title">Full Name:</div>
+            <div className="msa__list-title">Sex:</div>
 
-            <div className="msa__list-value">Bosun</div>
+            <div className="msa__list-value">{data.sex}</div>
           </div>
 
           <div className="msa__list">
-            <div className="msa__list-title">Full Name:</div>
+            <div className="msa__list-title">Country:</div>
 
-            <div className="msa__list-value">Bosun</div>
+            <div className="msa__list-value">{data.country}</div>
           </div>
 
           <div className="msa__list">
-            <div className="msa__list-title">Full Name:</div>
+            <div className="msa__list-title">State:</div>
 
-            <div className="msa__list-value">Bosun</div>
-          </div>
-
-          <div className="msa__list">
-            <div className="msa__list-title">Full Name:</div>
-
-            <div className="msa__list-value">Bosun</div>
+            <div className="msa__list-value">{data.state}</div>
           </div>
 
           <div className="msa__list">
             <div className="msa__list-title">Status:</div>
 
-            <div className="msa__list-value status-b">Active</div>
+            {data.status === "active" ? (
+              <div className="msa__list-value status-b">{data.status}</div>
+            ) : (
+              <div className="msa__list-value status-b inactive">
+                {data.status}
+              </div>
+            )}
+
+            {/* <div className="msa__list-value status-b">Active</div> */}
           </div>
           <div className="msa__list">
             <div className="msa__list-title">Role:</div>
@@ -83,7 +88,16 @@ function ManageSingleAdmin() {
           </div>
         </div>
         <div className="mas__other">
-          <div className="big-avatar"></div>
+          <div className="big-avatar">
+            <img
+              src={
+                data.profile_image
+                  ? `${data.profile_image}`
+                  : `${data.podcast_profile.profile_image}`
+              }
+              alt="profile Image"
+            />
+          </div>
         </div>
       </div>
     </div>

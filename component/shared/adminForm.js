@@ -1,16 +1,18 @@
 import DoneIcon from "@material-ui/icons/Done";
 import { InfoOutlined } from "@material-ui/icons";
 import { useState } from "react";
+import axiosConfig from "../../helpers/axiosConfig";
 
 function AdminForm(token) {
+  console.log(token);
   const [adminForm, setAdminForm] = useState({
     name: "",
     email: "",
     phone: "",
     sex: "Male",
-    state_id: "",
+    state_id: "Lagos",
     city_id: "",
-    country_id: " ",
+    country_id: "Nigeria ",
     password: "",
     about: "",
     profile_image: "",
@@ -24,9 +26,23 @@ function AdminForm(token) {
     permissions: "delete-users",
   });
 
-  const createAdmin = () => {
-    console.log(adminForm);
-    console.log(token);
+  const createAdmin = (e) => {
+    e.preventDefault;
+
+    axiosConfig({
+      method: "post",
+      url: "/v1/admin",
+      data: adminForm,
+    })
+      .then((res) => {
+        console.log(res.data);
+      })
+
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+        }
+      });
   };
   return (
     <div className="adminform">
@@ -48,9 +64,15 @@ function AdminForm(token) {
             </div>
 
             <div className="form__1-input">
-              <div className="form__1-input__label">Last Name:</div>
+              <div className="form__1-input__label">Password:</div>
               <div className="form__1-input__input">
-                <input type="text" />
+                <input
+                  type="text"
+                  value={adminForm.password}
+                  onChange={(e) =>
+                    setAdminForm({ ...adminForm, password: e.target.value })
+                  }
+                />
               </div>
             </div>
           </div>
