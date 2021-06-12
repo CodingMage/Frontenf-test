@@ -8,7 +8,6 @@ import BounceLoader from "react-spinners/BounceLoader";
 function SignIn(props) {
   //for redirecting
   const router = useRouter();
-  // const { state, dispatch } = useContext(Context);
   const [btnload, setBtnload] = useState(false);
 
   const [cookie, setCookie] = useCookies(["user"]);

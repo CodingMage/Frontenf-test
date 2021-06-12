@@ -86,126 +86,66 @@ function AllAdmin({ adminData, access_token }) {
             <input type="text" />
           </div>
         </div>
-
-        {/* <div className="alladmin__3">
-          <div className="alladmin__3-head">Admin</div>
-
-          <div className="alladmin__3-head">Role</div>
-
-          <div className="alladmin__3-head">Email Address</div>
-
-          <div className="alladmin__3-head">Phone Number</div>
-
-          <div className="alladmin__3-head">Status</div>
-
-          <div className="alladmin__3-head">Action</div>
-        </div> */}
-        {/* 
-        {adminData.map((data) => (
-          <>
-            <div className="alladmin__4" key={data.id}>
-              <div className="alladmin__4__avatar"></div>
-              <div className="alladmin__4__names">
-                <span> {data.name}</span>
-                <span>{data.role}</span>
-                <span>{data.email ? data.email : "N/A"}</span>
-                <span>{data.phone_no ? data.phone_no : "N/A"}</span>
-                <span></span>
-              </div>
-              {data.status === "active" ? (
-                <div className="alladmin__4__status">{data.status}</div>
-              ) : (
-                <div className="alladmin__4__status inactive">
-                  {data.status}
-                </div>
-              )}
-
-              <div className="alladmin__4__more">
-                <select>
-                  <option selected>More</option>
-                  <option
-                    value="Manage"
-                    onClick={() =>
-                      router.push({
-                        pathname: `/dashboard/alladmin/manage/${data.id}`,
-                      })
-                    }
-                  >
-                    Manage
-                  </option>
-                  <option
-                    value="Make Inactive"
-                    onClick={() => {
-                      console.log(data.name);
-                      getData(data.name, data.id);
-                    }}
-                  >
-                    Make Inactive
-                  </option>
-                </select>
-              </div>
-            </div>
-          </>
-        ))} */}
-
-        <table>
-          <thead>
-            <tr className="table__head">
-              <th scope="col">Admin</th>
-              <th scope="col">Role</th>
-              <th scope="col">Email Address</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">Status</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-
-          {adminData.map((data) => (
-            <tbody>
-              <tr>
-                <td className="table__avatar" colSpan="1.5">
-                  <Avatar alt="Remy Sharp" src="" />
-                  <div className="table__name">{data.name}</div>
-                </td>
-                <td>{data.role}</td>
-                <td>{data.email ? data.email : "N/A"}</td>
-                <td>{data.phone_no ? data.phone_no : "N/A"}</td>
-                <td>
-                  {data.status === "active" ? (
-                    <div className="active__status">{data.status}</div>
-                  ) : (
-                    <div className="inactive__status">{data.status}</div>
-                  )}
-                </td>
-                <td>
-                  <div className="table__more">
-                    <select>
-                      <option selected>More</option>
-                      <option
-                        value="Manage"
-                        onClick={() =>
-                          router.push({
-                            pathname: `/dashboard/alladmin/manage/${data.id}`,
-                          })
-                        }
-                      >
-                        Manage
-                      </option>
-                      <option
-                        value="Make Inactive"
-                        onClick={() => {
-                          getData(data.name, data.id);
-                        }}
-                      >
-                        Make Inactive
-                      </option>
-                    </select>
-                  </div>
-                </td>
+        <div className="table__container">
+          <table>
+            <thead>
+              <tr className="table__head">
+                <th scope="col">Admin</th>
+                <th scope="col">Role</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
-            </tbody>
-          ))}
-        </table>
+            </thead>
+
+            {adminData.map((data) => (
+              <tbody key={data.id}>
+                <tr>
+                  <td className="table__avatar" colSpan="1.5">
+                    <Avatar alt="Remy Sharp" src="" />
+                    <div className="table__name">{data.name}</div>
+                  </td>
+                  <td>{data.role}</td>
+                  <td>{data.email ? data.email : "N/A"}</td>
+                  <td>{data.phone_no ? data.phone_no : "N/A"}</td>
+                  <td>
+                    {data.status === "active" ? (
+                      <div className="active__status">{data.status}</div>
+                    ) : (
+                      <div className="inactive__status">{data.status}</div>
+                    )}
+                  </td>
+                  <td>
+                    <div className="table__more">
+                      <select>
+                        <option selected>More</option>
+                        <option
+                          value="Manage"
+                          onClick={() =>
+                            router.push({
+                              pathname: `/dashboard/alladmin/manage/${data.id}`,
+                            })
+                          }
+                        >
+                          Manage
+                        </option>
+                        <option
+                          value="Make Inactive"
+                          onClick={() => {
+                            getData(data.name, data.id);
+                          }}
+                        >
+                          Make Inactive
+                        </option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            ))}
+          </table>
+        </div>
       </div>
 
       <div className="overlay">

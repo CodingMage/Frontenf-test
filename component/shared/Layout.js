@@ -1,12 +1,20 @@
 import LayersIcon from "@material-ui/icons/Layers";
 import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
 import Link from "next/link";
+import MenuIcon from "@material-ui/icons/Menu";
+import { useState } from "react";
 function Layout({ route, msg, main, name, role }) {
+  const [open, setOpen] = useState(false);
+  const openMenu = () => {
+    setOpen(!open);
+  };
   return (
     <div className="layout">
       <div className="layout__contain">
-        <div className="layout__side">
-          <div className="side__misc"></div>
+        <div className={open ? `layout__side showmenu` : `layout__side `}>
+          <div className="side__misc">
+            <MenuIcon className="mobileMenu" onClick={openMenu} />
+          </div>
           <div className="side__contain">
             <div className="side__contain-top">
               <div className="avatar"></div>
@@ -39,6 +47,7 @@ function Layout({ route, msg, main, name, role }) {
         </div>
         <div className="layout__right">
           <div className="layout__top">
+            <MenuIcon className="menuicon" onClick={openMenu} />
             <div className="layout__top-contain">
               <div className="top__contain-header">{route}</div>
               <div className="top__contain-subheader">{msg}</div>

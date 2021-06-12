@@ -133,6 +133,10 @@
   .manager {
     width: 23vw;
     height: 389px;
+
+    @include media("<920px") {
+      width: 41vw;
+    }
   }
 
   .mas__other {
