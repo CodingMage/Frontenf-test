@@ -3,12 +3,20 @@
   display: flex;
   justify-content: space-between;
   gap: 15px;
+
+  @include media("<920px") {
+    display: unset;
+  }
   &__paper {
     max-width: 1217px;
     width: 52vw;
     // padding: 15px 0px;
     background-color: #fff;
     // margin: 0 auto;
+
+    @include media("<920px") {
+      width: 91vw;
+    }
 
     .msa__top {
       padding: 16px 33px 17px 29px;
@@ -135,7 +143,7 @@
     height: 389px;
 
     @include media("<920px") {
-      width: 41vw;
+      width: 90vw;
     }
   }
 
