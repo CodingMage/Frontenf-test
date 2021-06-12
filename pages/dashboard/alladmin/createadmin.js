@@ -27,9 +27,7 @@ Createadmin.getInitialProps = async ({ req, res }) => {
   }
 
   let sdata = JSON.parse(data.user);
-  // console.log(sdata.access_token);
   let access_token = sdata.access_token;
-  // console.log(access_token);
 
   return {
     data: access_token,

@@ -35,7 +35,7 @@ function AdminForm(token) {
       data: adminForm,
     })
       .then((res) => {
-        console.log(res.data);
+        return res.data;
       })
 
       .catch((error) => {

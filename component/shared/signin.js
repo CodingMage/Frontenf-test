@@ -35,7 +35,6 @@ function SignIn(props) {
         data: details,
       })
         .then((res) => {
-          console.log(res.data.access_token);
           const data = res.data;
           setCookie("user", JSON.stringify(data), {
             path: "/",
@@ -48,7 +47,6 @@ function SignIn(props) {
 
         .catch((error) => {
           if (error.response) {
-            console.log(error.response);
             setloginErr(error.response.statusText);
             setBtnload(false);
           }

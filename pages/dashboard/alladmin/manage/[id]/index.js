@@ -22,7 +22,6 @@ export default Msa;
 Msa.getInitialProps = async ({ req, res, query }) => {
   const data = parseCookies(req);
   const { id } = query;
-  // console.log(query);
 
   if (res) {
     if (Object.keys(data).length === 0 && data.constructor === Object) {
@@ -32,7 +31,6 @@ Msa.getInitialProps = async ({ req, res, query }) => {
   }
 
   let sdata = JSON.parse(data.user);
-  console.log(sdata.access_token);
 
   const config = {
     headers: { Authorization: `Bearer ${sdata.access_token}` },
@@ -43,8 +41,6 @@ Msa.getInitialProps = async ({ req, res, query }) => {
 
     config
   );
-
-  console.log(resp.data);
 
   return {
     data: resp.data,

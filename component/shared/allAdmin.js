@@ -46,7 +46,6 @@ function AllAdmin({ adminData, access_token }) {
         }
       )
       .then((res) => {
-        console.log(res.data);
         handleClose();
       })
 
@@ -195,7 +194,6 @@ function AllAdmin({ adminData, access_token }) {
                       <option
                         value="Make Inactive"
                         onClick={() => {
-                          console.log(data.name);
                           getData(data.name, data.id);
                         }}
                       >

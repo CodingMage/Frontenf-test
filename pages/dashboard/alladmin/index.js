@@ -34,7 +34,6 @@ index.getInitialProps = async ({ req, res }) => {
   }
 
   let sdata = JSON.parse(data.user);
-  console.log("acctoken", sdata.access_token);
 
   const config = {
     headers: { Authorization: `Bearer ${sdata.access_token}` },
@@ -49,7 +48,6 @@ index.getInitialProps = async ({ req, res }) => {
     accessToken: sdata.access_token,
     data: resp.data,
   };
-  console.log(mydata);
 
   return {
     data: mydata,
