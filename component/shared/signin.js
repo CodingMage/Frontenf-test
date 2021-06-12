@@ -3,11 +3,13 @@ import { Context } from "../../context/index";
 import axiosConfig from "../../helpers/axiosConfig";
 import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
+import BounceLoader from "react-spinners/BounceLoader";
 
 function SignIn(props) {
   //for redirecting
   const router = useRouter();
   // const { state, dispatch } = useContext(Context);
+  const [btnload, setBtnload] = useState(false);
 
   const [cookie, setCookie] = useCookies(["user"]);
 
@@ -25,6 +27,7 @@ function SignIn(props) {
   const signIn = (e) => {
     setloginErr("");
     if (validateEmail(details.email)) {
+      setBtnload(true);
       e.preventDefault();
       axiosConfig({
         method: "post",
@@ -39,7 +42,7 @@ function SignIn(props) {
             maxAge: 3600, // Expires after 1hr
             sameSite: true,
           });
-
+          setBtnload(false);
           router.push(`/dashboard`);
         })
 
@@ -47,6 +50,7 @@ function SignIn(props) {
           if (error.response) {
             console.log(error.response);
             setloginErr(error.response.statusText);
+            setBtnload(false);
           }
         });
     }
@@ -100,7 +104,11 @@ function SignIn(props) {
             </div>
             <div className="btn__contain">
               <div className="signin__btn">
-                <button onClick={signIn}>sign in</button>
+                <button onClick={signIn}>
+                  {" "}
+                  <span> sign in</span>
+                  <BounceLoader size={25} color={"#fb6504"} loading={btnload} />
+                </button>
               </div>
             </div>
           </form>

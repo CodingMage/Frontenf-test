@@ -84,12 +84,14 @@
 
       .signin__btn {
         button {
+          cursor: pointer;
           appearance: none;
           height: 48px;
           max-width: 105px;
           width: 100%;
           border: 2px solid rgba(241, 42, 16, 1);
-          padding: 14px 18px;
+          // padding: 14px 18px;
+          gap: 5px;
           text-transform: capitalize;
 
           font-family: Roboto;
