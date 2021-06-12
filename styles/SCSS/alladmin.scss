@@ -7,6 +7,10 @@
   background-color: #fff;
   margin: 0 auto;
 
+  @include media("<920px") {
+    width: 97vw !important;
+  }
+
   .alladmin__top {
     display: flex;
     justify-content: space-between;
@@ -56,6 +60,7 @@
     align-items: center;
     gap: 15px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    overflow-x: auto;
     .two__left {
       height: 29px;
       width: 157px;
