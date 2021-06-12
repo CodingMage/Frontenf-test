@@ -167,7 +167,6 @@ function AllAdmin({ adminData, access_token }) {
                 <td className="table__avatar" colSpan="1.5">
                   <Avatar alt="Remy Sharp" src="" />
                   <div className="table__name">{data.name}</div>
-                  {/* Kosara Okafor */}
                 </td>
                 <td>{data.role}</td>
                 <td>{data.email ? data.email : "N/A"}</td>
