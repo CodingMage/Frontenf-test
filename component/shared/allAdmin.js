@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Layout from "./Layout";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -7,6 +6,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import NotInterestedIcon from "@material-ui/icons/NotInterested";
 import DoneIcon from "@material-ui/icons/Done";
 import axiosConfig from "../../helpers/axiosConfig";
+import Avatar from "@material-ui/core/Avatar";
 
 //Dialog
 
@@ -14,9 +14,14 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { data } from "browserslist";
 
 function AllAdmin({ adminData, access_token }) {
   const router = useRouter();
+
+  //STATES
+  const [miscData, setMiscData] = useState({ name: "", id: "" });
+
   //DIALOG FUNCIONS
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
@@ -26,7 +31,6 @@ function AllAdmin({ adminData, access_token }) {
   const handleClose = () => {
     setOpen(false);
   };
-  const [miscData, setMiscData] = useState({ name: "", id: "" });
   const getData = (name, id) => {
     handleClickOpen();
     setMiscData({ name: name, id: id });
@@ -84,7 +88,7 @@ function AllAdmin({ adminData, access_token }) {
           </div>
         </div>
 
-        <div className="alladmin__3">
+        {/* <div className="alladmin__3">
           <div className="alladmin__3-head">Admin</div>
 
           <div className="alladmin__3-head">Role</div>
@@ -96,8 +100,8 @@ function AllAdmin({ adminData, access_token }) {
           <div className="alladmin__3-head">Status</div>
 
           <div className="alladmin__3-head">Action</div>
-        </div>
-
+        </div> */}
+        {/* 
         {adminData.map((data) => (
           <>
             <div className="alladmin__4" key={data.id}>
@@ -143,7 +147,68 @@ function AllAdmin({ adminData, access_token }) {
               </div>
             </div>
           </>
-        ))}
+        ))} */}
+
+        <table>
+          <thead>
+            <tr className="table__head">
+              <th scope="col">Admin</th>
+              <th scope="col">Role</th>
+              <th scope="col">Email Address</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+
+          {adminData.map((data) => (
+            <tbody>
+              <tr>
+                <td className="table__avatar" colSpan="1.5">
+                  <Avatar alt="Remy Sharp" src="" />
+                  <div className="table__name">{data.name}</div>
+                  {/* Kosara Okafor */}
+                </td>
+                <td>{data.role}</td>
+                <td>{data.email ? data.email : "N/A"}</td>
+                <td>{data.phone_no ? data.phone_no : "N/A"}</td>
+                <td>
+                  {data.status === "active" ? (
+                    <div className="active__status">{data.status}</div>
+                  ) : (
+                    <div className="inactive__status">{data.status}</div>
+                  )}
+                </td>
+                <td>
+                  <div className="table__more">
+                    <select>
+                      <option selected>More</option>
+                      <option
+                        value="Manage"
+                        onClick={() =>
+                          router.push({
+                            pathname: `/dashboard/alladmin/manage/${data.id}`,
+                          })
+                        }
+                      >
+                        Manage
+                      </option>
+                      <option
+                        value="Make Inactive"
+                        onClick={() => {
+                          console.log(data.name);
+                          getData(data.name, data.id);
+                        }}
+                      >
+                        Make Inactive
+                      </option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </table>
       </div>
 
       <div className="overlay">

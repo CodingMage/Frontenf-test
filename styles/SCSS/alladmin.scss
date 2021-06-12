@@ -327,3 +327,138 @@
     }
   }
 }
+
+// table {
+//   .table__head {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     // height: 19px;
+//     width: 100%;
+//     // padding: 23px 40px 20px 35px;
+//     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+//   }
+// }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+tr {
+  width: 100%;
+}
+th {
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(102, 102, 102, 1);
+  padding-left: 35px;
+}
+thead {
+  height: 62px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+td {
+  // width: 100%;
+
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(102, 102, 102, 1);
+  padding-left: 35px;
+  // padding-right: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  &:last-child {
+    padding-right: 10px;
+  }
+}
+
+.table__avatar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 83px;
+}
+
+tbody {
+  height: 83px;
+}
+
+.active__status {
+  height: 28px;
+  // width: 56px;
+  max-width: 67px;
+  width: 100%;
+  background: rgba(39, 141, 68, 1);
+  color: white;
+  border: 1px solid rgba(39, 141, 68, 1);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inactive__status {
+  height: 28px;
+  max-width: 67px;
+  width: 100%;
+  color: white;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(241, 42, 16, 1);
+  background-color: rgba(241, 42, 16, 1);
+
+  // width: 100%;
+  // height: 100%;
+  padding: 5px;
+}
+
+.table__more {
+  height: 36px;
+  width: 98px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(102, 102, 102, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  select {
+    &:hover {
+      border: 2px solid rgba(241, 42, 16, 1);
+    }
+
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+  }
+}
