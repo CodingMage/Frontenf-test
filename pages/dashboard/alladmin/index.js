@@ -8,13 +8,14 @@ import axios from "axios";
 
 function index(data) {
   const router = useRouter();
-  let adminData = data.data.admins;
+  let adminData = data.data.data.admins;
+  let access_token = data.data.accessToken;
   return (
     <div>
       <Layout
         msg="Dashboard   /   All Admin"
         route="All Admin"
-        main={<AllAdmin adminData={adminData} />}
+        main={<AllAdmin adminData={adminData} access_token={access_token} />}
       />
     </div>
   );
@@ -33,7 +34,7 @@ index.getInitialProps = async ({ req, res }) => {
   }
 
   let sdata = JSON.parse(data.user);
-  console.log(sdata.access_token);
+  console.log("acctoken", sdata.access_token);
 
   const config = {
     headers: { Authorization: `Bearer ${sdata.access_token}` },
@@ -44,10 +45,13 @@ index.getInitialProps = async ({ req, res }) => {
 
     config
   );
-
-  console.log(resp.data);
+  let mydata = {
+    accessToken: sdata.access_token,
+    data: resp.data,
+  };
+  console.log(mydata);
 
   return {
-    data: resp.data,
+    data: mydata,
   };
 };

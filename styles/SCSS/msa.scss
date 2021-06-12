@@ -157,3 +157,38 @@
     }
   }
 }
+
+.mas__about {
+  min-height: 306px;
+
+  .top__about {
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+
+  &-text {
+    max-height: 146px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 26px 33px 0 30px;
+    color: rgba(102, 102, 102, 1);
+  }
+}
+
+.see__more {
+  height: 27px;
+  color: rgba(241, 42, 16, 1);
+  display: flex;
+  justify-content: centaer;
+  gap: 5px;
+  align-items: center;
+  font-size: 18px;
+  padding-left: 30px;
+  width: 120px;
+}
