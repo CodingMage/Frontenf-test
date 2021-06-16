@@ -1,57 +1,68 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Context } from "../../context/index";
 import axiosConfig from "../../helpers/axiosConfig";
 import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
 import BounceLoader from "react-spinners/BounceLoader";
+import AuthContext from "../../context/AuthContext";
 
 function SignIn(props) {
   //for redirecting
   const router = useRouter();
   const [btnload, setBtnload] = useState(false);
 
-  const [cookie, setCookie] = useCookies(["user"]);
+  const [LoginErr, setLoginErr] = useState("");
 
-  // User Data
-  const [details, setDetails] = useState({ email: "", password: "" });
-  const [loginEr, setloginErr] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  //Email Validation function
-  function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-  }
+  const { error, login } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (error) {
+      setBtnload(false);
+      setLoginErr(error);
+    }
+  }, [error]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoginErr("");
+    setBtnload(true);
+    login({ email, password });
+  };
 
   // signin api request
-  const signIn = (e) => {
-    setloginErr("");
-    if (validateEmail(details.email)) {
-      setBtnload(true);
-      e.preventDefault();
-      axiosConfig({
-        method: "post",
-        url: "/auth/login",
-        data: details,
-      })
-        .then((res) => {
-          const data = res.data;
-          setCookie("user", JSON.stringify(data), {
-            path: "/",
-            maxAge: 3600, // Expires after 1hr
-            sameSite: true,
-          });
-          setBtnload(false);
-          router.push(`/dashboard`);
-        })
+  // const signIn = (e) => {
+  //   setLoginErr("");
+  //   if (validateEmail(details.email)) {
+  //     setBtnload(true);
+  //     e.preventDefault();
+  //     axiosConfig({
+  //       method: "post",
+  //       url: "/auth/login",
+  //       data: details,
+  //     })
+  //       .then((res) => {
+  //         const data = res.data;
+  //         setCookie("user", JSON.stringify(data), {
+  //           path: "/",
+  //           maxAge: 3600, // Expires after 1hr
+  //           sameSite: true,
+  //         });
+  //         setBtnload(false);
+  //         router.push(`/dashboard`);
+  //       })
 
-        .catch((error) => {
-          if (error.response) {
-            setloginErr(error.response.statusText);
-            setBtnload(false);
-          }
-        });
-    }
-  };
+  //       .catch((error) => {
+  //         if (error.response) {
+  //           setLoginErr(error.response.statusText);
+  //           setBtnload(false);
+  //           console.log(error.response);
+  //         }
+  //       });
+  //   }
+  // };
 
   return (
     <>
@@ -62,7 +73,7 @@ function SignIn(props) {
           <div className="login__sub-header">
             Sign in to your account to continue
           </div>
-          <form className="input__contain">
+          <form className="input__contain" onSubmit={handleSubmit}>
             {/* {validateEmail(details.email) ? "" : "Enter the correct Email"} */}
             <p
               style={{
@@ -71,18 +82,16 @@ function SignIn(props) {
                 fontSize: "15px",
               }}
             >
-              {loginEr}
+              {LoginErr}
             </p>
             <div className="input">
               <div className="input__label">Email address</div>
               <div className="input__input">
                 <input
                   type="email"
-                  value={details.email}
                   required
-                  onChange={(e) =>
-                    setDetails({ ...details, email: e.target.value })
-                  }
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -92,16 +101,16 @@ function SignIn(props) {
               <div className="input__input">
                 <input
                   type="password"
-                  value={details.password}
-                  onChange={(e) =>
-                    setDetails({ ...details, password: e.target.value })
-                  }
+                  value={password}
+                  minLength="6"
+                  required
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
             <div className="btn__contain">
               <div className="signin__btn">
-                <button onClick={signIn}>
+                <button>
                   {" "}
                   <span> sign in</span>
                   <BounceLoader size={25} color={"#fb6504"} loading={btnload} />

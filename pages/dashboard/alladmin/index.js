@@ -2,18 +2,17 @@ import AllAdmin from "../../../component/shared/allAdmin";
 import Layout from "../../../component/shared/Layout";
 import { useRouter } from "next/router";
 import { parseCookies } from "../../../Helper";
+import { API_URL } from "../../../config/index";
+
 import axios from "axios";
 
-function index(data) {
-  const router = useRouter();
-  let adminData = data.data.data.admins;
-  let access_token = data.data.accessToken;
+function index({ admins, token }) {
   return (
     <div>
       <Layout
         msg="Dashboard   /   All Admin"
         route="All Admin"
-        main={<AllAdmin adminData={adminData} access_token={access_token} />}
+        main={<AllAdmin adminData={admins.admins} access_token={token} />}
       />
     </div>
   );
@@ -21,33 +20,28 @@ function index(data) {
 
 export default index;
 
-index.getInitialProps = async ({ req, res }) => {
-  const data = parseCookies(req);
+export async function getServerSideProps({ req, res }) {
+  const { data } = parseCookies(req);
 
   if (res) {
-    if (Object.keys(data).length === 0 && data.constructor === Object) {
+    if (data === undefined) {
       res.writeHead(301, { Location: "/" });
       res.end();
     }
   }
+  let token = JSON.parse(data).access_token;
 
-  let sdata = JSON.parse(data.user);
+  const resp = await fetch(`${API_URL}/api/v1/admins`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}` },
+  });
 
-  const config = {
-    headers: { Authorization: `Bearer ${sdata.access_token}` },
-  };
-
-  let resp = await axios.get(
-    "https://xchangeapp-api.herokuapp.com/api/v1/admins",
-
-    config
-  );
-  let mydata = {
-    accessToken: sdata.access_token,
-    data: resp.data,
-  };
+  const admins = await resp.json();
 
   return {
-    data: mydata,
+    props: {
+      admins,
+      token,
+    },
   };
-};
+}

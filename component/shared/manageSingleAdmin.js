@@ -1,7 +1,7 @@
 import EditIcon from "@material-ui/icons/Edit";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 function ManageSingleAdmin(singleAdminData) {
-  let data = singleAdminData.singleAdminData.data.admin;
+  let data = singleAdminData.singleAdminData.singleAdmin.admin;
 
   return (
     <>

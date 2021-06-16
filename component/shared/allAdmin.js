@@ -14,7 +14,6 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { data } from "browserslist";
 
 function AllAdmin({ adminData, access_token }) {
   const router = useRouter();
@@ -103,7 +102,14 @@ function AllAdmin({ adminData, access_token }) {
               <tbody key={data.id}>
                 <tr>
                   <td className="table__avatar" colSpan="1.5">
-                    <Avatar alt="Remy Sharp" src="" />
+                    <Avatar
+                      alt="Remy Sharp"
+                      src={
+                        data.profile_image
+                          ? `${data.profile_image}`
+                          : `${data.podcast_profile.profile_image}`
+                      }
+                    />
                     <div className="table__name">{data.name}</div>
                   </td>
                   <td>{data.role}</td>
